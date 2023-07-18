@@ -1,0 +1,51 @@
+.wrapper {
+  border-radius: 6px;
+  border: 1px solid #dddddd;
+  overflow: hidden;
+
+  .table {
+    table-layout: fixed;
+    background: white;
+    border-collapse: collapse;
+    width: 100%;
+
+    tbody tr {
+      height: 50px;
+      border-bottom: 1px solid #dddddd;
+    }
+
+    tbody:has(tr) {
+      border-top: 1px solid #dddddd;
+    }
+
+    th {
+      padding: 8px;
+      text-align: left;
+      color: #3d3d3d;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 22px;
+    }
+
+    td {
+      width: 1px;
+      padding: 8px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+    }
+
+    tbody {
+      tr:last-of-type {
+        border: none;
+      }
+    }
+  }
+}
+
+.separator {
+  border-left: 1px solid #e5ddf8;
+  width: 1px;
+  height: 30px;
+  margin-right: 10px;
+}

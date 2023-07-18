@@ -1,0 +1,27 @@
+.header {
+  padding: 20px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid #DED8E8;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 39px;
+}
+
+.chevron {
+  color: #7D3CE9;
+  width: 16px;
+  height: 16px;
+}
+
+.breadcrumbs {
+  padding-left: 45px;
+}
