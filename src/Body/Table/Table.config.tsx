@@ -1,6 +1,6 @@
 import { Tag } from './Tag/Tag';
 import React from 'react';
-import { RowData } from '../../App.decl';
+import { Request, Response, RowData } from '../../App.decl';
 
 type ColumnsConfigType = {
   name: keyof RowData;
@@ -31,9 +31,9 @@ export const columns: ColumnsConfigType = [
 ];
 
 
-export type GroupsType = 'urlParams' | 'queryParams' | 'headers' | 'body';
+export type RequestGroups = keyof Request;
 
-export const groups: { field: GroupsType; label: string }[] = [
+export const requestGroups: { field: RequestGroups; label: string }[] = [
   {
     field: 'urlParams',
     label: 'URL Parameters',
@@ -51,3 +51,17 @@ export const groups: { field: GroupsType; label: string }[] = [
     label: 'Body',
   },
 ];
+
+export type ResponseGroups = keyof Response;
+
+export const responseGroups: { field: ResponseGroups; label: string }[] = [
+  {
+    field: 'headers',
+    label: 'Headers',
+  },
+  {
+    field: 'body',
+    label: 'Body',
+  },
+];
+

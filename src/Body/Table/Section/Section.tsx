@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 
 import { faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,7 +22,7 @@ export const Section = ({ data, title, filter }: SectionProps) => {
     () =>
       data?.filter(r => {
         const onlyPIIFilter = onlyPII ? r.pii : true;
-        const textIncluded = !text || r.name.includes(text);
+        const textIncluded = !text || r.name.includes(text) || r.type.includes(text);
 
         return onlyPIIFilter && textIncluded;
       }),

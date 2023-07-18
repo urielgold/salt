@@ -20,8 +20,6 @@ export type Request = {
 };
 
 export type Response = {
-  urlParams: RequestParam[];
-  queryParams: RequestParam[];
   headers: RequestParam[];
   body: RequestParam[];
 };
@@ -33,3 +31,5 @@ export type APIConfig = {
   request: Request;
   response: Response;
 };
+
+export type RequestResponseType = 'response' | 'request';

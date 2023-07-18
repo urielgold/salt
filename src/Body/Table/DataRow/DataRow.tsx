@@ -1,6 +1,5 @@
 import { RowData } from '../../../App.decl';
 import { columns } from '../Table.config';
-import React from 'react';
 
 type DataRowProps = {
   data: RowData;
