@@ -12,24 +12,28 @@ type SectionProps = {
   title: string;
   data: RowData[];
   filter: Filter;
+  path: string;
 };
 
-export const Section = ({ data, title, filter }: SectionProps) => {
+export const Section = ({ data, title, filter, path }: SectionProps) => {
   const [expanded, setExpanded] = useState(true);
   const { onlyPII, text } = filter;
 
   const rows = useMemo(
     () =>
-      data?.filter(r => {
+      data?.map(r => {
         const onlyPIIFilter = onlyPII ? r.pii : true;
         const textIncluded = !text || r.name.includes(text) || r.type.includes(text);
 
-        return onlyPIIFilter && textIncluded;
+        const visible = onlyPIIFilter && textIncluded;
+        return { data: r, visible };
       }),
     [data, onlyPII, text],
   );
 
-  if (!rows || !rows.length) return null;
+  const isEmpty = !rows || !rows.some(r => r.visible);
+
+  if (isEmpty) return null;
 
   return (
     <Fragment>
@@ -42,7 +46,9 @@ export const Section = ({ data, title, filter }: SectionProps) => {
           <span>{title}</span>
         </td>
       </tr>
-      {expanded && rows.map((row, index) => <DataRow data={row} key={index}/>)}
+      {expanded && rows.map((row, index) =>
+        row.visible && <DataRow data={row.data} key={index} path={`${path}[${index}]`}/>
+      )}
     </Fragment>
   );
 };

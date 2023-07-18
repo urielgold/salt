@@ -25,7 +25,7 @@ export const Body = () => {
   return (
     <div className={styles.body} key={type}>
       <SearchBar setFilter={setFilter} />
-      <Table data={data[type]} filter={filter}/>
+      <Table data={data[type]} filter={filter} path={type}/>
     </div>
   );
 };

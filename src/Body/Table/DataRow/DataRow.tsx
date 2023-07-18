@@ -3,13 +3,14 @@ import { columns } from '../Table.config';
 
 type DataRowProps = {
   data: RowData;
+  path: string;
 }
 
-export const DataRow = ({ data }: DataRowProps) => (
+export const DataRow = ({ data, path }: DataRowProps) => (
   <tr>
     <td />
     {columns.map(c => (
-      <td key={c.name}>{c?.render ? c.render(data) : data[c.name]}</td>
+      <td key={c.name}>{c?.render ? c.render(data, path) : data[c.name]}</td>
     ))}
   </tr>
 );

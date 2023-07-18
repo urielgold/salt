@@ -1,11 +1,12 @@
 import { Tag } from './Tag/Tag';
 import React from 'react';
 import { Request, Response, RowData } from '../../App.decl';
+import {TypeCell} from './TypeCell/TypeCell';
 
 type ColumnsConfigType = {
   name: keyof RowData;
   displayName: string;
-  render?: (data: RowData) => React.ReactNode;
+  render?: (data: RowData, path: string) => React.ReactNode;
 }[];
 
 export const columns: ColumnsConfigType = [
@@ -16,17 +17,17 @@ export const columns: ColumnsConfigType = [
   {
     name: 'pii',
     displayName: 'PII',
-    render: data => <Tag outline={!data.pii} variant='pii' > PII </Tag>,
+    render: (data, path) => <Tag value={data.pii} variant='pii' path={`${path}.pii`}> PII </Tag>,
   },
   {
     name: 'masked',
     displayName: 'Masking',
-    render: data => <Tag outline={!data.masked} variant='masking'> Masked </Tag>,
+    render: (data, path) => <Tag value={data.masked} variant='masking' path={`${path}.masked`}> Masked </Tag>,
   },
   {
     name: 'type',
     displayName: 'Type',
-    render: data => <Tag outline={false} variant='type'> {data.type} </Tag>,
+    render: data => <TypeCell> {data.type} </TypeCell>,
   },
 ];
 
