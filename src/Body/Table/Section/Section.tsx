@@ -46,8 +46,8 @@ export const Section = ({ data, title, filter, path }: SectionProps) => {
           <span>{title}</span>
         </td>
       </tr>
-      {expanded && rows.map((row, index) =>
-        row.visible && <DataRow data={row.data} key={index} path={`${path}[${index}]`}/>
+      {rows.map((row, index) =>
+        row.visible && <DataRow hidden={!expanded} data={row.data} key={index} path={`${path}[${index}]`}/>
       )}
     </Fragment>
   );

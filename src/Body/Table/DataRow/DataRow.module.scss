@@ -1,0 +1,14 @@
+.row {
+  height: 50px;
+  transition: height 0.2s;
+}
+
+.hidden {
+  display: none;
+  /*height: 0 !important;
+  transition: height 0.2s;
+  display: block;
+  overflow: hidden;
+  border: none !important;
+  opacity: 0*/
+}

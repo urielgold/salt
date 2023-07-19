@@ -17,7 +17,6 @@ export const Tag = ({ value, variant, children, path }: PropsWithChildren<TagPro
   const handleOnClick = () => {
     setData(data => {
       const clonedData = structuredClone(data);
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       set(clonedData, path, !value);
       return clonedData;
     })
